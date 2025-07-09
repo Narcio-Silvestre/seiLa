@@ -4,7 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 
 export default function Sidebar(){
 
-    const [sideActive,setSideActive] = useState(false)
+    const [sideActive,setSideActive] = useState(true)
     
 
 

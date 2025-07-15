@@ -16,7 +16,7 @@ export default function CardSneaker({img, promo,  isNew,
 
     return(
         <div className={` bg-white w-65 ${downArrow ? 'max-h-100' : 'max-h-74'}
-            flex flex-col rounded-xl shadow-md relative transition-all duration-700 `}>
+            flex flex-col rounded-xl shadow-md hover:shadow-neutral-600 hover:shadow-2xl relative transition-all duration-700 `}>
 
             <div className="relative w-full">
                 <img src={img} alt="Nike Tenis" className='w-full h-55 object-cover rounded-t-xl' />
@@ -40,8 +40,8 @@ export default function CardSneaker({img, promo,  isNew,
                         <p className='text-green-600 text-xl font-bold'>{(price - ((promo / 100)* price)).toFixed(2)}€</p>
                     </div>
 
-                    <button className='rounded bg-blue-500 p-2 flex flex-row items-center gap-2 absolute bottom-2 right-2
-                    hover:bg-blue-700'>
+                    <button className='rounded bg-blue-700 p-2 flex flex-row items-center gap-2 absolute bottom-2 right-2
+                    hover:bg-blue-500 transition-all duration-200 ease-in-out'>
                         <span>Comprar</span>
                         <FaCartShopping className=""/>
                     </button>

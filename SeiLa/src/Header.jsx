@@ -1,4 +1,4 @@
-import './App.css'
+
 import { FaShopify } from "react-icons/fa";
 import { CiShoppingTag } from "react-icons/ci";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
@@ -34,14 +34,14 @@ return(
             </Icon>
           </div>
           <div className=' flex flex-row items-center gap-1'>
-            <input className='rounded  border-black border-2  
-            text-black p-1 bg-gray-100 shadow-xs
-            shadow-black  focus:outline-none' name='pesquisar' placeholder='Nike'/>
+            <input className='rounded-2xl  border-black border-1  
+            text-black p-1 pl-2 bg-white 
+              ' name='pesquisar' placeholder='Nike'/>
             <Icon >
-              <FaSearch className='size-5'/>
+              <FaSearch className='size-4 hover:opacity-100 opacity-8 transition-all duration-200'/>
             </Icon>
             <Icon >
-              <FaRegUserCircle className='size-8 ml-2'/>
+              <FaRegUserCircle className='size-5 ml-2 '/>
             </Icon>
           </div>
       </div>

@@ -1,5 +1,6 @@
-import CardSneaker from './CardSneaker';
 import { useState } from 'react'
+import Pagination from './Pagination';
+import SneakersGrid from './SneakersGrid';
 
 // 1 - 0 (i-1)*max .... 10 i*max
 // 2 - 10 .... 20 i*max
@@ -15,8 +16,7 @@ export default function Shop({sneakers, handleFavorite}){
     
 
     const numberPages = Math.ceil(sneakers.length/numberItens);
-    const prev = (page-1)*numberItens;
-    const next = page*numberItens;
+    
 
 
 
@@ -40,41 +40,15 @@ export default function Shop({sneakers, handleFavorite}){
    
     return(
         <section className="bg-neutral-200 flex-1 flex flex-col justify-center content-center items-center">
-            <div className=" m-5 grid grid-cols-3  gap-7">
-                { sneakers.map((sneaker) => {
-                    return <CardSneaker 
-                    key={sneaker.id}
-                    sneaker={sneaker}
-                    handleFavorite = {handleFavorite}></CardSneaker>
-                }).slice(prev,next)
-                }
-            </div>
+            
+            <SneakersGrid sneakers={sneakers} 
+            prev={(page-1)*numberItens}
+            next={page*numberItens}
+            handleFavorite={handleFavorite}/>
 
-             <Pages maxPage ={numberPages} next={handlePageNext} 
+             <Pagination maxPage ={numberPages} next={handlePageNext} 
             prev={handlePagePrev} page={handlePage} numPage ={page} />  
         </section>
     )
 }
 
-function Pages(props){
-        
-
-
-    return(
-        
-       
-        <div className='flex flex-row justify-center items-center'>
-            <button onClick={props.prev} className='w-15 h-8 bg-blue-500 rounded opacity-100 hover:opacity-85 transition-opacity duration-200'>Prev</button>
-                <div className='m-2 flex'>
-                    {Array.from({length:props.maxPage},(_,i)=>{
-                    return <span key={i} onClick={()=>{props.page(i+1); }} className={`p-1 font-extrabold hover:underline ${(i+1) == props.numPage ? 'underline' : ''}`}>{i+1}</span>
-                }
-                )}
-                </div>
-                
-            <button onClick={props.next} className='w-15 h-8 bg-blue-500 rounded opacity-100 hover:opacity-85 transition-opacity duration-200'>Next</button>
-            
-        </div>
-       
-    )
-}
